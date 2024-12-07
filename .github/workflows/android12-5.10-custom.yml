@@ -79,9 +79,6 @@ jobs:
         git clone https://github.com/Kernel-SU/AnyKernel3
         rm -rf ./AnyKernel3/.git
         cp $OUTDIR/Image ./AnyKernel3/
-        wget https://dl.google.com/android/gki/gki-certified-boot-android12-5.10-${{ inputs.os_patch_level }}_r1.zip -O ./gki-kernel.zip
-        unzip -q ./gki-kernel.zip
-        rm ./gki-kernel.zip
         cd $GITHUB_WORKSPACE/android-kernel
         echo "Unpack boot"
         ./tools/mkbootimg/unpack_bootimg.py --boot_img $GITHUB_WORKSPACE/boot*.img
