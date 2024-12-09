@@ -43,7 +43,7 @@ jobs:
         mkdir android-kernel
         cd android-kernel
         repo init -u https://android.googlesource.com/kernel/manifest -b common-android12-5.10-${{ inputs.os_patch_level }}
-        wget https://alist.jhe.us.kg/d/default.xml?sign=UDIH50AoHxl5rNdenIUAfDIPqO_lGlUrS6-gQkjk564=:0
+        wget https://alist.jhe.us.kg/d/default.xml?sign=UDIH50AoHxl5rNdenIUAfDIPqO_lGlUrS6-gQkjk564=:0 -O default.xml
         cp default.xml .repo/manifests/default.xml
         repo sync
 
