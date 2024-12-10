@@ -54,7 +54,6 @@ jobs:
         git clone https://github.com/mmeimm/Enable-LXC-Dockers-for-Android-GKI-kernel.git gki-patch
         cp ./gki-patch/config/gki_defconfig-android12-5.10 ./android-kernel/common/arch/arm64/configs/gki_defconfig
         cd ./android-kernel/common
-        git apply $GITHUB_WORKSPACE/gki-patch/patchs/*.patch
 
     - name: KernelSU
       if: ${{ inputs.kernelsu == true }}
@@ -65,7 +64,6 @@ jobs:
     - name: Build Kernel
       run: |
         cd $GITHUB_WORKSPACE/android-kernel
-        BUILD_CONFIG=common/build.config.gki.aarch64 build/config.sh savedefconfig
         LTO=thin BUILD_CONFIG=common/build.config.gki.aarch64 build/build.sh
 
     - name: Prepare artifacts
